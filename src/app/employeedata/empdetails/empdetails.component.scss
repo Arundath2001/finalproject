@@ -1,0 +1,82 @@
+.empdetails{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &__down{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+        align-items: center;
+
+    }
+    &__down2{
+        margin: 0px auto;
+    }
+    h2{
+        color: #252C58;
+    }
+    p{
+        font-size: 15px;
+        color: #252C58;
+    }
+    svg{
+        fill: rgb(144, 143, 143);
+    }
+    &__main1{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        img{
+            width: 60px;
+            border-radius: 50%;
+        }
+    }
+    input{
+        padding: 10px;
+        background-color: lightgrey;
+        border-radius: 10px
+    }
+    button{
+        padding: 5px;
+        background-color: #1635ff;
+        color: white;
+        border-radius: 15px;
+        cursor: pointer;
+
+    }
+    &__btn{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+    .empdetails{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+@include tablet{
+    .empdetails{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+
+<div class="empdetails">
+  <div class="empdetails__top">
+    <app-topnavbar></app-topnavbar>
+  </div>
+
+  <div class="empdetails__down">
+
+    <div class="empdetails__down1">
+      <app-empnavbar></app-empnavbar>
+
+    </div>
+    <div class="empdetails__down2">
+      
+      <div class="empdetails__main" *ngIf="user">
+        <h2>User Details</h2>
+        <p>ID: {{ user.id }}</p>
+        <ng-container *ngFor="let field of editableFields">
+          <div  class="empdetails__main1" *ngIf="!isEditing || field !== fieldInEditMode">
+            <p>{{ field | titlecase }}: {{ field === 'image' ? '' : user[field] }}</p>
+            <ng-container *ngIf="field === 'image'">
+              <img [src]="user.image" alt="User Image" style="width: 150px; height: 150px;">
+            </ng-container>
+            <button (click)="toggleEditMode(field)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg></button>
+          </div>
+          <div *ngIf="isEditing && field === fieldInEditMode">
+            <label for="{{ field }}">{{ field | titlecase }}:</label>
+            <ng-container *ngIf="field !== 'image'">
+              <input type="text" id="{{ field }}" [(ngModel)]="user[field]" />
+            </ng-container>
+            <ng-container *ngIf="field === 'image'">
+              <img [src]="user.image" alt="User Image" style="width: 150px; height: 150px;">
+              <input type="file" (change)="onFileChange($event)">
+            </ng-container>
+            <ng-container *ngIf="field === 'leaveDetails'">
+              <div *ngFor="let leave of user[field]">
+                <p>Leave Start Date: {{ leave.startDate | date }}</p>
+                <p>Leave End Date: {{ leave.endDate | date }}</p>
+                <p>Status: {{ leave.status }}</p>
+                <p>Reason: {{ leave.reason }}</p>
+              </div>
+            </ng-container>
+            <button (click)="saveAndToggleEditMode(field)">Save</button>
+            <button (click)="toggleEditMode(null)">Cancel</button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

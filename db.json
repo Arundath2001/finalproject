@@ -1,0 +1,233 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Arundath",
+      "rank": "admin",
+      "role": "Hr",
+      "password": "Arundath123",
+      "active": true,
+      "leaves": {
+        "January": 2,
+        "February": 1,
+        "March": 0,
+        "message": ""
+      },
+      "age": "20",
+      "dob": "1993-01-01",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "A+",
+      "gender": "Male",
+      "email": "user1@example.com",
+      "mobileNumber": "7994352926",
+      "message": ""
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "rank": "employee",
+      "role": "main",
+      "password": "password2",
+      "active": false,
+      "leaves": {
+        "January": 0,
+        "February": 3,
+        "March": 1,
+        "December": 2
+      },
+      "age": 28,
+      "dob": "1995-03-15",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "B-",
+      "gender": "Female",
+      "email": "user2@example.com",
+      "mobileNumber": "9876543210",
+      "message": "",
+      "leaveDetails": [
+        {
+          "startDate": "2023-12-01",
+          "endDate": "2023-12-02",
+          "reason": "theruoo",
+          "status": "Approved",
+          "Lid": 1,
+          "leaveType": "casual"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "username": "Jareesh",
+      "rank": "employee",
+      "role": "dev",
+      "password": "jareesh123",
+      "active": true,
+      "leaves": {
+        "January": 1,
+        "February": 2,
+        "March": 1,
+        "December": 5
+      },
+      "age": "19",
+      "dob": "1997-08-22",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "O+",
+      "gender": "Male",
+      "email": "user3@example.com",
+      "mobileNumber": "9895800134",
+      "leaveDetails": [
+        {
+          "startDate": "2023-12-08",
+          "endDate": "2023-12-09",
+          "reason": "Sick",
+          "status": "Pending",
+          "Lid": 112,
+          "leaveType": ""
+        },
+        {
+          "startDate": "",
+          "endDate": "",
+          "reason": "",
+          "status": "Pending",
+          "Lid": 113
+        }
+      ],
+      "message": "please contact me"
+    },
+    {
+      "id": 4,
+      "username": "user4",
+      "rank": "employee",
+      "role": "ui",
+      "password": "password4",
+      "active": true,
+      "leaves": {
+        "January": 0,
+        "February": 0,
+        "March": 3
+      },
+      "age": 32,
+      "dob": "1990-12-10",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "AB+",
+      "gender": "Female",
+      "email": "user4@example.com",
+      "mobileNumber": "8765432109",
+      "leaveDetails": [],
+      "message": ""
+    },
+    {
+      "id": 5,
+      "username": "user5",
+      "rank": "employee",
+      "role": "dev",
+      "password": "password5",
+      "active": false,
+      "leaves": {
+        "January": 1,
+        "February": 1,
+        "March": 8
+      },
+      "age": 29,
+      "dob": "1994-05-08",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "A-",
+      "gender": "Male",
+      "email": "user5@example.com",
+      "mobileNumber": "6543210987",
+      "leaveDetails": [
+        {
+          "Lid": 103,
+          "startDate": "2023-03-01",
+          "endDate": "2023-03-05",
+          "status": "Pending",
+          "reason": "Sick Leave",
+          "leaveType": ""
+        }
+      ],
+      "message": ""
+    },
+    {
+      "id": 6,
+      "username": "user6",
+      "rank": "employee",
+      "role": "ui",
+      "password": "password6",
+      "active": true,
+      "leaves": {
+        "January": 1,
+        "February": 1,
+        "March": 0
+      },
+      "age": 27,
+      "dob": "1996-11-20",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "B+",
+      "gender": "Female",
+      "email": "user6@example.com",
+      "mobileNumber": "5432109876",
+      "leaveDetails": [],
+      "message": ""
+    },
+    {
+      "username": "user7",
+      "rank": "employee",
+      "password": "password7",
+      "active": true,
+      "role": "ui",
+      "age": 22,
+      "dob": "23/09/2000",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "A+",
+      "gender": "male",
+      "email": "user6@gmail.com",
+      "mobileNumber": "7997342527",
+      "leaves": {
+        "December": 10,
+        "January": 5
+      },
+      "id": 7,
+      "message": "check leaves",
+      "leaveDetails": [
+        {
+          "startDate": "2023-12-27",
+          "endDate": "2023-12-28",
+          "reason": "goa",
+          "status": "Pending",
+          "Lid": 4,
+          "leaveType": ""
+        }
+      ]
+    },
+    {
+      "username": "user8",
+      "rank": "employee",
+      "password": "password7",
+      "active": true,
+      "role": "dec",
+      "age": 19,
+      "dob": "23/09/2004",
+      "image": "../../assets/images/pic1.jpg",
+      "bloodGroup": "B+",
+      "gender": "male",
+      "email": "user8@gmail.com",
+      "mobileNumber": "7997342510",
+      "leaves": {
+        "December": 1,
+        "January": 2,
+        "November": 2
+      },
+      "id": 8,
+      "message": "good",
+      "leaveDetails": [
+        {
+          "startDate": "2023-11-01",
+          "endDate": "2023-12-02",
+          "reason": "Sick",
+          "status": "Approved",
+          "Lid": 4,
+          "leaveType": "sick"
+        }
+      ]
+    }
+  ]
+}

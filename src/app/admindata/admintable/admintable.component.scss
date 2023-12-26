@@ -1,0 +1,80 @@
+.admintable{
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    font-size: 12px;
+    th,td{
+        padding: 5px;
+        border: 1px solid lightgray;
+    }
+    th{
+        color: rgb(159, 159, 159);
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 250px;
+    }
+    table{
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+    &__topdata1{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    &__top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    input{
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 8px;
+        
+    }
+    input::placeholder{
+        color: white;
+    }
+    h2{
+        color: #252C58;
+    }
+    &__btn{
+        display: flex;
+        gap: 5px;
+        
+    }
+    &__approve{
+        background-color: rgb(19, 216, 19);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    &__reject{
+        background-color: rgb(227, 32, 32);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    &__alert{
+        background-color: rgb(227, 159, 32);
+        border-radius: 5px;
+        cursor: pointer;
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button:active{
+            color: white;
+
+        }
+    }
+}
+

@@ -1,0 +1,12 @@
+<div class="empbarchart">
+    <h3>Monthly Leaves:</h3>
+    <div>
+      <label for="yearSelect">Select Year: </label>
+      <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange(selectedYear)">
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+    </div>
+    <div id="chartContainer"></div>
+  </div>
+

@@ -1,0 +1,66 @@
+<div class="empcreate">
+  <div class="empcreate__top">
+    <app-topnavbar></app-topnavbar>
+  </div>
+
+  <div class="empcreate__down">
+
+    <div class="empcreate__down1">
+      <app-empnavbar></app-empnavbar>
+    </div>
+
+    <div class="empcreate__down2">
+      <div>
+        <h2>Create Employee</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <label for="username">Username:</label>
+          <input type="text" id="username" formControlName="username" required>
+      
+          <div formGroupName="rank">
+            <label>
+              <input type="checkbox" formControlName="admin"> Hr
+            </label>
+            <label>
+              <input type="checkbox" formControlName="employee"> Employee
+            </label>
+          </div>
+      
+          <label for="password">Password:</label>
+          <input type="password" id="password" formControlName="password" required>
+      
+          <label for="role">Role:</label>
+          <input type="text" id="role" formControlName="role" required>
+      
+          <label for="age">Age:</label>
+          <input type="number" id="age" formControlName="age" required>
+      
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" formControlName="dob" required>
+      
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="image" (change)="onImageFileChange($event)" accept="image/*">
+            <img *ngIf="userForm.get('image')?.value" [src]="userForm.get('image')?.value" alt="Selected Image">
+          </div>
+      
+          <label for="bloodGroup">Blood Group:</label>
+          <input type="text" id="bloodGroup" formControlName="bloodGroup">
+      
+          <label for="gender">Gender:</label>
+          <input type="text" id="gender" formControlName="gender">
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" formControlName="email" required>
+      
+          <label for="mobileNumber">Mobile Number:</label>
+          <input type="text" id="mobileNumber" formControlName="mobileNumber">
+      
+          <button type="submit">Create Employee</button>
+        </form>
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>

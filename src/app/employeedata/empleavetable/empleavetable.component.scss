@@ -1,0 +1,65 @@
+.empleavetable{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+    &__cont{
+        padding: 20px;
+        background-color: white;
+        border-radius: 15px;
+        height: 290px;
+    }
+    th, td{
+        padding: 10px;
+        text-align: center;
+        
+    }
+    &__head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    input{
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    table{
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
+@import  '../../mixin/mixin.scss';
+
+@include mobile{
+    .empleavetable{
+        &__cont{
+            height: 100%;
+            font-size: 12px;
+            padding: 10px;
+            width:340px;
+            th,td{
+                padding: 5px;
+            }
+        }
+        &__main{
+            overflow-y: auto;
+            max-width: 400px;
+          }
+    }
+}
+
+@include tablet{
+    .empleavetable{
+        &__main{
+            overflow-y: auto;
+            max-width: 400px;
+          }
+    }
+}

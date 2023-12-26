@@ -1,0 +1,16 @@
+.empbarchart{
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+    svg{
+        width: 700px;
+    }
+    h3{
+        color: #252C58
+    }
+}
+
+
+@import '../../mixin/mixin.scss';
+

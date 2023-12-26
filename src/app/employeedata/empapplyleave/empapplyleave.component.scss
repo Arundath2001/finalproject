@@ -1,0 +1,66 @@
+.applyleave{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    &__down{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+
+    }
+    &__main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 20px;
+        align-items: center;
+        gap: 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    h2{
+        color: #252C58;
+        text-align: center;
+    }
+    label{
+        font-weight: 800;
+        color: #252C58;
+    }
+    input, textarea{
+        padding: 15px;
+        border-radius: 15px;
+        background-color: lightgrey;
+    }
+    button{
+        background-color: #3354F4;
+        border-radius: 15px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+    .applyleave{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+@include tablet{
+    .applyleave{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

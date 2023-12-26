@@ -1,0 +1,91 @@
+.sidenavbar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    svg{
+        width: 40px;
+        fill: #3354F4;
+
+    }
+    a{
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+}
+
+
+
+  @import '../mixin/mixin.scss';
+
+  @include mobile{
+    .sidenavbar{
+        width: 40px;
+        align-items: center;
+        svg{
+            width: 15px;
+          }
+    }
+  }
+
+  @include tablet{
+    .sidenavbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .mobile-menu-button {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        cursor: pointer;
+        background: none;
+        border: none;
+  
+      }
+      
+  }
+
+
+.mobile-menu-button {
+    display: none; 
+  }
+  
+  .sidenavbar {
+  
+    @media screen and (max-width: 600px) {
+      position: fixed;
+      top: 30%;
+      left: 0;
+      width: 0;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px; 
+      z-index: 1;
+      background: transparent;
+    }
+  
+    &.open {
+      width: 250px; 
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .mobile-menu-button {
+      display: block;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      cursor: pointer;
+      background: none;
+      border: none;
+
+    }
+  }
+  

@@ -1,0 +1,47 @@
+<div class="logindata">
+  <div class="login">
+    <div class="login__left">
+      <img src="../../assets/images/newlogo.png" alt="logo">
+      <h3>Employee Management</h3>
+    </div>
+  
+    <div class="login__right">
+      <div class="login__rightcont1">
+          <img src="../../assets/images/newlogo.png" alt="logo">
+          <div class="login__head">
+          <h2>Login</h2>
+          <p>Welcome Back! Please enter your details</p>
+        </div>
+      </div>
+  
+      <div class="login__rightcont2">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form__div1">
+            <label for="username">Username:</label>
+            <input type="text" id="username" formControlName="username" />
+            <div *ngIf="username?.invalid && username?.touched" class="error">
+              <span *ngIf="username?.hasError('required')">Please enter Username!</span>
+              <span *ngIf="username?.hasError('minlength')">Username must be at least 3 characters.</span>
+            </div>
+          </div>
+        
+          <div class="form__div2">
+            <label for="password">Password:</label>
+            <input type="password" id="password" formControlName="password" />
+            <div *ngIf="password?.invalid && password?.touched" class="error">
+              <span *ngIf="password?.hasError('required')">Password is required.</span>
+              <span *ngIf="password?.hasError('minlength')">Password must be at least 6 characters.</span>
+            </div>
+          </div>
+        
+          <button type="submit">Login</button>
+        </form>
+        
+        <div *ngIf="loginError" class="error">
+          Incorrect username or password. Please try again.
+        </div>
+        
+      </div>
+      </div>
+  </div>
+</div>

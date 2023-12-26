@@ -1,0 +1,63 @@
+.empcreate{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &__down{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    &__down2{
+        margin: 0px auto;
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        padding: 20px;
+        background-color: white;
+        border-radius: 15px;
+    }
+    input{
+        border: 1px solid gray;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    h2{
+        color: #252C58;
+    }
+    label{
+        font-weight: 900;
+        color: #252C58;
+
+    }
+    button{
+        padding: 10px;
+        color: white;
+        background-color: #3354F4;
+        border-radius: 50px
+    }
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+    .empcreate{
+        &__down{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+}
+
+@include tablet{
+    .empcreate{
+        &__down{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+        }
+    }
+}

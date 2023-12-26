@@ -1,0 +1,16 @@
+.adminbarchart1{
+    .tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 5px;
+        font: 12px sans-serif;
+        background: #f0f0f0;
+        border: 1px solid #d3d3d3;
+        border-radius: 8px;
+        pointer-events: none;
+        opacity: 0;
+      }
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+}

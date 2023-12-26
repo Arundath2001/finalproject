@@ -1,0 +1,13 @@
+.emprequestleave{
+    display: flex;
+    justify-content: end;
+    button{
+        padding: 8px;
+        background-color: blue;
+        color: white;
+        font-weight: 700;
+        font-size: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}

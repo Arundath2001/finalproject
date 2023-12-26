@@ -1,0 +1,33 @@
+<div class="applyleave">
+  <div class="applyleave__top">
+      <app-topnavbar></app-topnavbar>
+  </div>
+
+    <div class="applyleave__down">
+      <div class="applyleave__down1">
+        <app-empnavbar></app-empnavbar>
+      </div>
+    
+      <div class="applyleave__main">
+        <div>
+          <h2>Apply for Leave</h2>
+          <form (submit)="applyLeave()">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" [(ngModel)]="newLeave.startDate" required>
+        
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" [(ngModel)]="newLeave.endDate" required>
+        
+            <label for="reason">Reason:</label>
+            <textarea id="reason" name="reason" [(ngModel)]="newLeave.reason" required></textarea>
+        
+        
+            <button type="submit">Apply Leave</button>
+          </form>
+        </div>
+        
+        
+      </div>
+    
+    </div>
+</div>

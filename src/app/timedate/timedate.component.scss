@@ -1,0 +1,68 @@
+.timedate{
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border-radius: 15px;
+    gap: 25px;
+    background-color: white;
+    border: 15px;
+    &__cont1{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        p{
+            font-size: 20px;
+        }
+        svg,p{
+            color: rgb(155, 155, 155);
+        }
+    }
+
+    &__cont2{
+        font-size: 20px;
+        p{
+            font-weight: 700;
+            color: #252C58;
+        }
+    }
+
+    &__cont3{
+        p{
+            font-size: 19px;
+            color: #252C58;
+            font-weight: 600;
+        }
+        a{
+            text-decoration: none;
+            color: #252C58;
+        }
+        a:hover{
+            color: lightgray;
+        }
+    }
+}
+
+@import '../mixin/mixin.scss';
+
+@include tablet{
+    .timedate{
+        width: 310px;
+        text-align: center;
+        &__cont1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+@include mobile{
+    .timedate{
+        width: 310px;
+        text-align: center;
+        &__cont1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

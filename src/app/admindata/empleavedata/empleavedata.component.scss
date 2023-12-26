@@ -1,0 +1,94 @@
+.empleavedata{
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    font-size: 17px;
+    &__div2{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+    th,td{
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    table{
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+    &__topdata1{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    &__top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    input{
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    h2{
+        color: #252C58;
+    }
+    &__alert{
+        background-color: rgb(227, 178, 32);
+        border-radius: 5px;
+        cursor: pointer;
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button:active{
+            color: white;
+
+        }
+    }
+   
+}
+.empleavedatamain{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+    .empleavedata{
+        font-size: 12px;
+        table{
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+        &__div2{
+            display: flex;
+            flex-direction: column;
+        }
+        &__main{
+            overflow-x: auto;
+        }
+    }
+}
+
+@include tablet{
+    .empleavedata{
+        &__div2{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

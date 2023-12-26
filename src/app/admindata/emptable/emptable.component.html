@@ -1,0 +1,85 @@
+<div class="emptable">
+  <div class="emptable__top">
+    <app-topnavbar></app-topnavbar>
+  </div>
+
+  <div class="emptable__down">
+    <div class="emptable__down1">
+
+    <app-empnavbar></app-empnavbar>
+  </div>
+
+    <div class="emptable__down2">
+    
+      
+      
+      <div class="emptable__main">
+        <div class="emptable__search">
+          <div><h2>Employee Table</h2></div>
+          <div class="emptable__search1">
+            <label for="search">Search by Username or ID:</label>
+          <input type="text" [(ngModel)]="searchTerm" (input)="filterEmployees()" placeholder="Search..." id="search">
+          </div>
+        </div>
+        <table class="emptable__table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Mobile Number</th>
+              <th>Age</th>
+              <th>Date of Birth (DOB)</th>
+              <th>Image</th>
+              <th>Blood Group</th>
+              <th>Gender</th>
+              <th>Total Leaves</th>
+              <th>Messages</th> 
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of filteredEmployees">
+              <td>{{ employee.id }}</td>
+              <td>{{ employee.username }}</td>
+              <td>{{ employee.role }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.mobileNumber }}</td>
+              <td>{{ employee.age }}</td>
+              <td>{{ employee.dob }}</td>
+              <td><img [src]="employee.image" alt="User Image" style="width: 50px; height: 50px;"></td>
+              <td>{{ employee.bloodGroup }}</td>
+              <td>{{ employee.gender }}</td>
+              <td [ngStyle]="getLeaveCountStyle(calculateTotalLeaves(employee))">  {{ calculateTotalLeaves(employee) }}</td>
+              <td>
+                <div *ngIf="employee.messages && employee.messages.length > 0">
+                  <div>
+                    <div *ngFor="let message of employee.messages">
+                      {{ message }}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="emptable__btn">
+                  <button class="emptable__edit" (click)="editEmployee(employee)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg></button>
+                  <button class="emptable__delete" (click)="deleteEmployee(employee.id)">Delete</button>
+                  <button class="emptable__alert" *ngIf="isButtonActive(calculateTotalLeaves(employee))" (click)="updateMessage(employee.id)">Alert!</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+        </div>
+  </div>
+
+
+
+
+</div>

@@ -1,0 +1,108 @@
+.admindash{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  &__down{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  &__btn{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__newdiv1{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+  &__newdiv2{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  &__downcont2data1{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+  }
+
+    &__downcont2data2{
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      
+    }
+    .new1{
+      flex-grow: 1;
+    }
+    .new2{
+      flex-grow: 1;
+    }
+
+    &__downcont2{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+  
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+  .admindash{
+    margin: 20px;
+    &__down{
+      display: flex;
+      flex-direction: column;
+    }
+    &__downcont2data1{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__downcont2data2{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__newdiv1{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__newdiv2{
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+    &__down{
+      gap: 0;
+    }
+
+  }
+}
+
+@include tablet{
+  .admindash{
+    margin: 10px;
+    &__down{
+      display: flex;
+      flex-direction: column;
+    }
+    &__downcont2data1{
+      display: flex;
+      flex-direction: column;
+    }
+    &__downcont2data2{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

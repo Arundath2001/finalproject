@@ -1,0 +1,22 @@
+<div class="adminchart2">
+    
+<div class="adminchart2__cont1">
+
+<div>
+    <label for="userSelect">Select User:</label>
+    <select id="userSelect" [(ngModel)]="selectedUser" (change)="updateChart()">
+      <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+    </select>
+  </div>
+
+    <label for="month">Month: </label>
+    <select id="month" [(ngModel)]="selectedMonth" (change)="updateChart()">
+      <option *ngFor="let month of getMonths()" [value]="month">{{ month }}</option>
+    </select>
+  
+    
+  </div>
+
+<div id="chart"></div>
+
+</div>

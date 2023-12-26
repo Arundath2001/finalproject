@@ -1,0 +1,55 @@
+<div class="topnavbar">
+
+    <div class="topnavbar__left">
+        <img src="../../assets/images/newlogo.png" alt="logo">
+        <h3>EMS</h3>
+    </div>
+
+
+    <div class="topnavbar__right">
+
+                <div class="search">
+                  <span class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l6 6 1.41-1.41-6-6zM9.5 14C7.02 14 5 11.98 5 9.5S7.02 5 9.5 5 14 7.02 14 9.5 11.98 14 9.5 14z"/>
+                    </svg>
+                  </span>
+                  <input class="search-input" type="text" [(ngModel)]="searchQuery" placeholder="{{ getSearchPlaceholder() }}" (input)="searchUsers()">
+              </div>
+          
+          
+          <div class="alertbtn" *ngIf="loggedInUser && loggedInUser.rank !== 'admin'"
+             (mouseenter)="handleAlertButtonMouseOver()" (mouseleave)="handleAlertButtonMouseLeave()">
+          <button (click)="showAlert()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+          </svg></button>
+          <div class="alertbtn__message" *ngIf="showMessageDropdown" (mouseleave)="hideMessageDropdown()">
+            From HR :{{ loggedInUser.message }}
+          </div>
+        </div>
+          
+        
+        <div class="imgdropdown" *ngIf="loggedInUser" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
+        
+            <div class="imgdropdown__image">
+              <img [src]="loggedInUser.image" alt="Userimage">
+            </div>
+              <span class="imgdropdown__username">{{ loggedInUser.username }}</span>
+              <span class="imgdropdown__triangle">▼</span>
+            <ng-container *ngIf="showDropdown">
+              <div class="imgdropdown__content" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
+                <a [routerLink]="loggedInUser.rank === 'admin' ? ['/admindetails', loggedInUser.id] : ['/empdetails', loggedInUser.id]">View Details</a>
+                <a routerLink="/changepassword/{{ loggedInUser.id }}">Change Password</a>
+                <a *ngIf="loggedInUser.rank !== 'admin'" routerLink="/empapplyleave">Apply Leave</a>
+                <a class="imgdropdown__logout" (click)="logout()">Logout</a>
+              </div>
+            </ng-container>
+          </div>
+
+
+
+    </div>
+    
+      
+
+</div>

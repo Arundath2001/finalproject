@@ -1,0 +1,49 @@
+.empchart1{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    #casualLeaveChart , #sickLeaveChart , #earnedLeaveChart{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: white;
+    }
+    &__cont2main{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+    &__cont1{
+        display: flex;
+        flex-direction: row;
+        gap :30px;
+    }
+}
+
+@import '../../mixin/mixin.scss';
+
+@include tablet{
+.empchart1{
+    display: flex;
+    flex-direction: column;
+}
+}
+
+@include mobile{
+    .empchart1{
+        display: flex;
+        flex-direction: column;
+        &__cont1{
+            display: flex;
+            flex-direction: column;
+        }
+        &__cont2main{
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+    }
+    
+    }

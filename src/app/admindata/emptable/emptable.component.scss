@@ -1,0 +1,117 @@
+.emptable{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &__down{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+        align-items: center;
+
+    }
+    &__down2{
+        margin: 0px auto;
+    }
+    h2{
+        color: #252C58;
+    }
+    p{
+        font-size: 15px;
+        color: #252C58;
+    }
+    svg{
+        fill: rgb(144, 143, 143);
+    }
+    &__main1{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        img{
+            width: 60px;
+            border-radius: 50%;
+        }
+    }
+    input{
+        padding: 10px;
+        background-color: lightgrey;
+        border-radius: 10px
+    }
+    &__btn{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+    &__search{
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        
+
+    }
+    th,td{
+        padding: 10px;
+        align-items: center;
+        border: 1px solid lightgray;
+    }
+    img{
+        width: 60px;
+        border-radius: 50%;
+    }
+    button{
+        padding: 5px;
+        color:white;
+        border-radius: 10px;
+        text-align: center;
+        svg{
+            fill: white;
+        }
+    }
+   
+    &__btn{
+        display: flex;
+        flex-direction: column;
+    }
+    &__delete{
+        background-color: rgb(245, 53, 53);
+    }
+    &__edit{
+        background-color: rgb(70, 70, 245);
+    }
+    &__alert{
+        background-color: rgb(205, 143, 29);
+    }
+}
+
+@import '../../mixin/mixin.scss';
+
+@include mobile{
+    .emptable{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+        &__main{
+            overflow-x: auto;
+            max-width: 400px;
+          }
+    }
+}
+
+@include tablet{
+    .emptable{
+        &__down{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

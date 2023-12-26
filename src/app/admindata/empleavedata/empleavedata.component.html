@@ -1,0 +1,73 @@
+<div class="empleavedatamain">
+    <div class="empleavedata__div1">
+        <app-topnavbar></app-topnavbar>
+    </div>
+
+   <div class="empleavedata__div2">
+    <app-empnavbar></app-empnavbar>
+
+    <div class="empleavedata"*ngIf="leaveData">
+            
+    <div class="empleavedata__top ">
+        <h2>Leave Approval</h2>
+        <div class="empleavedata__topdata1">
+            <label for="search">Search:</label>
+            <input type="text" id="search" [(ngModel)]="searchTerm" placeholder="Enter username or id">
+        </div>
+    </div>
+    <div class="empleavedata__main">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Leave ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Reason</th>
+            <th>Leave Type</th> 
+            <th>Total Leaves</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="filteredLeaveData && filteredLeaveData.length > 0; else noDetails">
+            <ng-container *ngFor="let user of filteredLeaveData">
+              <ng-container *ngIf="user.leaveDetails && user.leaveDetails.length > 0">
+                <ng-container *ngIf="user.rank !== 'admin'">
+                  <tr *ngFor="let leaveDetail of user.leaveDetails; let i = index">
+                    <td *ngIf="i === 0" [attr.rowspan]="user.leaveDetails.length">{{ user.username }}</td>
+                    <td>{{ leaveDetail.Lid }}</td>
+                    <td>{{ leaveDetail.startDate | date }}</td>
+                    <td>{{ leaveDetail.endDate | date }}</td>
+                    <td>{{ leaveDetail.status }}</td>
+                    <td>{{ leaveDetail.reason }}</td>
+                    <td>
+                      <select [(ngModel)]="leaveDetail.leaveType" [disabled]="leaveDetail.status !== 'Pending'">
+                        <option value="sick">Sick Leave</option>
+                        <option value="casual">Casual Leave</option>
+                        <option value="earned">Earned Leave</option>
+                      </select>
+                    </td>
+                    <td [ngStyle]="getLeaveCountStyle(calculateTotalLeaves(user))">
+                        {{ calculateTotalLeaves(user) }}
+                        <button  class="empleavedata__alert" (click)="updateMessage(user.id)" [disabled]="!isButtonActive(calculateTotalLeaves(user))">Alert <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                        </svg></button>
+                      </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-template #noDetails>
+            <tr>
+              <td colspan="10">No leave details available</td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </div>
+        </div>
+   </div>
+  </div>
+  
