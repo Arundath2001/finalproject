@@ -9,7 +9,7 @@
     </select>
   </div>
 
-    <label for="month">Month: </label>
+    <label for="month">Month & Year: </label>
     <select id="month" [(ngModel)]="selectedMonth" (change)="updateChart()">
       <option *ngFor="let month of getMonths()" [value]="month">{{ month }}</option>
     </select>

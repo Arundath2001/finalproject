@@ -67,10 +67,10 @@ export class AdmintableComponent {
 
   ngAfterViewInit() {
     this.httpService.getUsers().subscribe(users => {
-      const userData = users.filter((user: { rank: string; }) => user.rank !== 'admin');
+      const userData = users.filter((user: { rank: string; }) => user.rank !== 'hr');
 
-      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && user.active).length;
-      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && !user.active).length;
+      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && user.active).length;
+      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && !user.active).length;
 
     });
   }
@@ -130,16 +130,20 @@ private updateMonthlyLeaveCount(user: any, leaveDetail: any): void {
   const months = [];
   let currentDate = startDate;
   while (currentDate <= endDate) {
-    months.push(currentDate.getMonth() + 1);
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    
+    const monthKey = `${month}-${year}`;
+
+    months.push(monthKey);
     currentDate.setMonth(currentDate.getMonth() + 1);
   }
 
-  months.forEach((month) => {
-    const monthName = this.getMonthName(month);
-    if (user.leaves && user.leaves[monthName] !== undefined) {
-      user.leaves[monthName] += leaveDays;
+  months.forEach((monthKey) => {
+    if (user.leaves && user.leaves[monthKey] !== undefined) {
+      user.leaves[monthKey] += leaveDays;
     } else {
-      user.leaves = { ...user.leaves, [monthName]: leaveDays };
+      user.leaves = { ...user.leaves, [monthKey]: leaveDays };
     }
   });
 
@@ -147,6 +151,7 @@ private updateMonthlyLeaveCount(user: any, leaveDetail: any): void {
     console.log('Monthly leave count updated for approved leave!');
   });
 }
+
 
 private getMonthName(month: number): string {
   const monthNames = [
@@ -205,12 +210,9 @@ rejectLeave(user: any, leaveDetail: any): void {
     const term = this.searchTerm.toLowerCase();
     const filteredData = this.leaveData.filter((user) =>
       (user.username.toLowerCase().includes(term) || user.id.toString().includes(term)) &&
-      user.rank !== 'admin' &&
+      user.rank !== 'hr' &&
       user.leaveDetails.some((leave: any) => leave.status === 'Pending')
     );
-  
-    console.log('Search Term:', term);
-    console.log('Filtered Leave Data:', filteredData);
   
     return filteredData;
   }
@@ -258,7 +260,6 @@ calculateRowTotalLeaves(leave: any): number {
     return total;
   }, 0);
 
-  console.log('Row Total Leave Days:', totalLeaveDays);
 
   return totalLeaveDays;
 }

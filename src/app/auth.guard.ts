@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     try {
       if (this.authService.isAuthenticated()) {
-        const allowedRoles = route.data['roles'] as string[];
+        const allowedRoles = route.data['rank'] as string[];
         const loggedInUser = this.authService.getLoggedInUser();
   
         if (allowedRoles && loggedInUser && allowedRoles.includes(loggedInUser['rank'])) {

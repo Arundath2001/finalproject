@@ -16,7 +16,7 @@ export class EmpnavbarComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.loggedInUser = this.authService.getLoggedInUser();
-    this.dashboardLink = this.loggedInUser.rank === 'admin' ? '/admin' : '/employee';
+    this.dashboardLink = this.loggedInUser.rank === 'hr' ? '/admin' : '/employee';
   }
 
   toggleMobileContent() {
@@ -46,7 +46,7 @@ export class EmpnavbarComponent implements OnInit {
   navigateToDashboard(): void {
     if (this.loggedInUser.rank === 'employee') {
       this.router.navigate(['/employee']); 
-    } else if (this.loggedInUser.rank === 'admin') {
+    } else if (this.loggedInUser.rank === 'hr') {
       this.router.navigate(['/admin']); 
     }
   }
@@ -56,7 +56,7 @@ export class EmpnavbarComponent implements OnInit {
   }
 
   navigateToDetails(): void {
-    const detailsLink = this.loggedInUser.rank === 'admin' ? '/admindetails' : '/empdetails';
+    const detailsLink = this.loggedInUser.rank === 'hr' ? '/admindetails' : '/empdetails';
     this.router.navigate([detailsLink, this.loggedInUser.id]);
   }
 

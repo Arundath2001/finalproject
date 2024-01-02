@@ -35,7 +35,7 @@
               <th>Blood Group</th>
               <th>Gender</th>
               <th>Total Leaves</th>
-              <th>Messages</th> 
+              <th>Active</th> 
               <th>Action</th>
             </tr>
           </thead>
@@ -52,15 +52,7 @@
               <td>{{ employee.bloodGroup }}</td>
               <td>{{ employee.gender }}</td>
               <td [ngStyle]="getLeaveCountStyle(calculateTotalLeaves(employee))">  {{ calculateTotalLeaves(employee) }}</td>
-              <td>
-                <div *ngIf="employee.messages && employee.messages.length > 0">
-                  <div>
-                    <div *ngFor="let message of employee.messages">
-                      {{ message }}
-                    </div>
-                  </div>
-                </div>
-              </td>
+              <td>{{ employee.active ? 'Yes' : 'No' }}</td>
               <td>
                 <div class="emptable__btn">
                   <button class="emptable__edit" (click)="editEmployee(employee)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -69,6 +61,9 @@
                   </svg></button>
                   <button class="emptable__delete" (click)="deleteEmployee(employee.id)">Delete</button>
                   <button class="emptable__alert" *ngIf="isButtonActive(calculateTotalLeaves(employee))" (click)="updateMessage(employee.id)">Alert!</button>
+                  <button class="emptable__active" (click)="toggleActiveStatus(employee)">
+                    {{ employee.active ? 'Deactivate' : 'Activate' }}
+                  </button>
                 </div>
               </td>
             </tr>

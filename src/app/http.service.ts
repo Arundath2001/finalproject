@@ -23,6 +23,9 @@ export class HttpService {
       );
   }
 
+  
+
+
   getUserByUsernameAndPassword(username: string, password: string): Observable<any> {
     return this.getUsers().pipe(
       map((data) => {
@@ -219,17 +222,29 @@ export class HttpService {
 
   checkPhoneNumber(userId: number, phoneNumber: string): Observable<boolean> {
     const userUrl = `${this.apiUrl}/${userId}`;
-
+  
     return this.http.get<any>(userUrl).pipe(
       catchError((error) => {
         console.error('Error fetching user details:', error);
-        return of(null); // Return null in case of an error
+        return of(false); 
       }),
       map((user) => {
         return user && user.mobileNumber === phoneNumber;
       })
     );
   }
+  
+  updateActiveStatus(employeeId: number, newStatus: boolean): Observable<void> {
+    const data = { active: newStatus };
+    return this.http.patch<void>(`${this.apiUrl}/${employeeId}`, data)
+      .pipe(
+        catchError((error) => {
+          console.error('Error updating active status:', error);
+          throw error; 
+        })
+      );
+  }
+  
 
   searchUsersAdmin(query: string): Observable<any[]> {
     const searchUrl = `${this.apiUrl}?id=${query}`;

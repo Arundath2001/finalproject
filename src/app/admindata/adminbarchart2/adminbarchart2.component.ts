@@ -1,18 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { HttpService } from '../../http.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-
-interface LeaveDetail {
-  Lid?: number;
-  startDate: string;
-  endDate: string;
-  status: string;
-  reason: string;
-  leaveType?: string;
-}
 
 @Component({
   selector: 'app-adminbarchart2',
@@ -28,7 +18,7 @@ export class Adminbarchart2Component implements OnInit {
   private svg: any;
   private xScale: any;
   private yScale: any;
-  public selectedMonth: string = 'December';
+  public selectedMonth: string = '1-2024';
   public selectedUser: string = 'Select All'; 
 
   constructor(private httpService: HttpService, private router: Router, private authService: AuthService) {}
@@ -52,6 +42,7 @@ export class Adminbarchart2Component implements OnInit {
     );
   }
 
+  
   createBarChart1(): void {
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
     const width = 290 - margin.left - margin.right;
@@ -87,9 +78,14 @@ export class Adminbarchart2Component implements OnInit {
     if (!this.data) {
       return [];
     }
-
+  
     const usersSet = new Set<string>();
-    this.data.forEach((item) => usersSet.add(item.username));
+    this.data.forEach((item) => {
+      if (item.role !== 'Hr') {
+        usersSet.add(item.username);
+      }
+    });
+  
     return Array.from(usersSet);
   }
 
@@ -97,10 +93,15 @@ export class Adminbarchart2Component implements OnInit {
     this.svg.selectAll('*').remove();
   
     let filteredData = this.data;
+
   
     if (this.selectedUser && this.selectedUser !== 'Select All') {
       filteredData = filteredData.filter((item) =>
-        item.username === this.selectedUser
+        item.role !== 'Hr' && item.username === this.selectedUser
+      );
+    } else {
+      filteredData = filteredData.filter((item) =>
+        item.role !== 'Hr'
       );
     }
   

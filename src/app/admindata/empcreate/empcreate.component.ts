@@ -44,7 +44,7 @@ export class EmpcreateComponent implements OnInit {
       const newUser = this.userForm.value;
 
       if (newUser.rank.admin) {
-        newUser.rank = 'admin';
+        newUser.rank = 'hr';
       } else if (newUser.rank.employee) {
         newUser.rank = 'employee';
       }

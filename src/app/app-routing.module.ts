@@ -16,8 +16,8 @@ import { EmpleavedataComponent } from './admindata/empleavedata/empleavedata.com
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: ['admin'] } },
-  { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard], data: { roles: ['employee'] } },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { rank: ['hr'] } },
+  { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard], data: { rank: ['employee'] } },
   { path: 'emptable', component: EmptableComponent },
   { path: 'empprofile/:id', component: EmpprofileComponent }, 
   { path: 'empcreate', component: EmpcreateComponent },
@@ -25,11 +25,11 @@ const routes: Routes = [
   {
     path: 'empapplyleave',
     component: EmpapplyleaveComponent,
-    canActivate: [AuthGuard], // Add the AuthGuard here
-    data: { roles: ['employee'] } // Specify the allowed roles
+    canActivate: [AuthGuard], 
+    data: { rank: ['employee'] } 
   },
 
-  { path: 'changepassword/:userId', component: ChangepasswordComponent, canActivate: [AuthGuard], data: { roles: ['admin', 'employee'] } },
+  { path: 'changepassword/:userId', component: ChangepasswordComponent, canActivate: [AuthGuard], data: { rank: ['hr', 'employee'] } },
 
   { path: 'admindetails/:id', component: AdmindetailsComponent },
 

@@ -52,11 +52,23 @@
         cursor: pointer;
 
     }
-    &__btn{
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
+    &__btn1{
+        background: transparent;
+    }
+    &__btn2{
+        background-color: rgb(22, 235, 22) ;
+    }
+    &__btn3{
+        background-color: rgb(249, 37, 37) ;
+    }
+    select{
+        background-color: lightgrey;
+        padding: 5px;
+        border-radius: 8px;
+    }
+    p{
+        color: #384284;
+        font-weight: 900;
     }
 }
 

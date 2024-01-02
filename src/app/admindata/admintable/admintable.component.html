@@ -26,7 +26,7 @@
           <ng-container *ngIf="filteredLeaveData && filteredLeaveData.length > 0; else noDetails">
             <ng-container *ngFor="let user of filteredLeaveData">
               <ng-container *ngIf="user.leaveDetails && user.leaveDetails.length > 0">
-                <ng-container *ngIf="user.rank !== 'admin'">
+                <ng-container *ngIf="user.rank !== 'hr'">
                   <tr *ngFor="let leaveDetail of user.leaveDetails; let i = index">
                     <td *ngIf="i === 0" [attr.rowspan]="user.leaveDetails.length">{{ user.username }}</td>
                     <td>{{ leaveDetail.Lid }}</td>

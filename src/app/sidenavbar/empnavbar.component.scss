@@ -6,9 +6,13 @@
     padding: 15px;
     border-radius: 15px;
     svg{
-        width: 40px;
+        width: 35px;
         fill: #3354F4;
 
+    }
+    svg:hover{
+      transform: scale(1.15);
+      transition: .5s;
     }
     a{
         text-decoration: none;

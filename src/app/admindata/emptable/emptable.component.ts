@@ -30,7 +30,7 @@ export class EmptableComponent implements OnInit {
         return of([]); 
       })
     ).subscribe((users) => {
-      this.employees = users.filter((user: { rank: string; }) => user.rank !== 'admin');
+      this.employees = users.filter((user: { rank: string; }) => user.rank !== 'hr');
       this.filteredEmployees = [...this.employees]; 
       this.filterEmployees(); 
     });
@@ -83,6 +83,20 @@ export class EmptableComponent implements OnInit {
       return leavesArray.reduce((total: number, leaves: number) => total + leaves, 0);
     }
     return 0;
+  }
+
+  toggleActiveStatus(employee: any): void {
+    const newStatus = !employee.active; 
+    this.httpService.updateActiveStatus(employee.id, newStatus).subscribe(
+      () => {
+        employee.active = newStatus;
+        Swal.fire('Success!', `User's active status updated.`, 'success');
+      },
+      (error) => {
+        console.error('Error updating active status:', error);
+        Swal.fire('Error', 'Unable to update active status.', 'error');
+      }
+    );
   }
 
 

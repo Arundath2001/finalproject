@@ -16,6 +16,8 @@ export class TopnavbarComponent implements OnInit {
   users: any[] = [];
   showMessageDropdown: boolean = false; 
   isMouseOverAlertButton: boolean = false; 
+  searchTerm: string = '';
+
 
   
 
@@ -32,8 +34,10 @@ export class TopnavbarComponent implements OnInit {
     this.authService.logout();
   }
 
+  
+
   searchUsers(): void {
-    if (this.loggedInUser.rank === 'admin') {
+    if (this.loggedInUser.rank === 'hr') {
       this.httpService.searchUsersAdmin(this.searchQuery).subscribe(
         (results) => {
           this.searchResults = results;
@@ -56,8 +60,10 @@ export class TopnavbarComponent implements OnInit {
     }
   }
 
+  
+
   navigateToUserDetails(userId: number): void {
-    if (this.loggedInUser.rank === 'admin') {
+    if (this.loggedInUser.rank === 'hr') {
       this.router.navigate(['/admindetails', userId]);
     } else {
       this.router.navigate(['/empdetails', userId]);
@@ -65,11 +71,11 @@ export class TopnavbarComponent implements OnInit {
   }
 
   getSearchPlaceholder(): string {
-    return this.loggedInUser.rank === 'admin' ? 'Search user by ID or name' : 'Search your leaves';
+    return this.loggedInUser.rank === 'hr' ? 'Search user by ID or name' : 'Search your leaves';
   }
 
   showAlert(): void {
-    if (this.loggedInUser.rank !== 'admin' && this.loggedInUser.message) {
+    if (this.loggedInUser.rank !== 'hr' && this.loggedInUser.message) {
       this.showMessageDropdown = true;
     }
   }

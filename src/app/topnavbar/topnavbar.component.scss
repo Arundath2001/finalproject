@@ -33,30 +33,30 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    overflow: hidden; /* Ensure the image stays within the circle */
+    overflow: hidden; 
   }
   
   &__image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the circle */
+    object-fit: cover; 
   }
   
 
   
   &__username {
-    margin-right: 5px; /* Adjust as needed */
+    margin-right: 5px; 
   }
   
   &__triangle {
-    font-size: 12px; /* Adjust as needed */
+    font-size: 12px; 
   }
   
   &__content {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333; /* Change to your desired color */
+    background-color: #333333; 
     display: none;
   }
   
@@ -73,7 +73,7 @@
   }
   
   &__content a:hover {
-    background-color: #555; /* Change to your desired hover color */
+    background-color: #555; 
   }
   
   .imgdropdown__logout {
@@ -146,10 +146,10 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #fff; /* Set your background color */
-      border: 1px solid #ccc; /* Set your border styles */
-      padding: 10px; /* Adjust padding as needed */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+      background-color: #fff; 
+      border: 1px solid #ccc; 
+      padding: 10px; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     }
   
     &:hover .alertbtn__message {

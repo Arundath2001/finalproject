@@ -27,7 +27,7 @@ export class ChangepasswordComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(6),
+          Validators.minLength(8),
           this.passwordFormatValidator(),
         ],
       ],
@@ -43,7 +43,7 @@ export class ChangepasswordComponent implements OnInit {
   navigateToHome() {
     const loggedInUser = this.authService.getLoggedInUser();
 
-    if (loggedInUser && loggedInUser.rank === 'admin') {
+    if (loggedInUser && loggedInUser.rank === 'hr') {
       this.router.navigate(['/admin']);
     } else {
       this.router.navigate(['/employee']);
@@ -71,6 +71,7 @@ export class ChangepasswordComponent implements OnInit {
         this.httpService.checkPhoneNumber(this.userId, phoneNumber).subscribe(
           (isMatch) => {
             if (isMatch) {
+              console.log('Is phone number match:', isMatch);
               this.httpService.updatePassword(this.userId, newPassword).subscribe(
                 (updatedUser) => {
                   if (updatedUser) {

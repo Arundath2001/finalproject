@@ -45,6 +45,25 @@
               </svg>
             </a>
           </div>
+
+          <ng-container *ngIf="isEditing && field === 'dob' && fieldInEditMode === 'dob'">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" [(ngModel)]="user.dob" />
+          </ng-container>
+                                              
+          <ng-container *ngIf="isEditing && field === 'bloodGroup' && fieldInEditMode === 'bloodGroup'">
+            <label for="bloodGroup">Blood Group:</label>
+            <select id="bloodGroup" [(ngModel)]="user.bloodGroup">
+              <option *ngFor="let bloodGroup of bloodGroups" [value]="bloodGroup">{{ bloodGroup }}</option>
+            </select>
+          </ng-container>
+        
+          <ng-container *ngIf="isEditing && field === 'gender' && fieldInEditMode === 'gender'">
+            <label for="gender">Gender:</label>
+            <select id="gender" [(ngModel)]="user.gender">
+              <option *ngFor="let gender of genders" [value]="gender">{{ gender }}</option>
+            </select>
+          </ng-container>
       
           <div  class="empdetails__btn" *ngIf="isEditing && field === fieldInEditMode && field !== 'image'">
             <label for="{{ field }}">{{ field | titlecase }}:</label>

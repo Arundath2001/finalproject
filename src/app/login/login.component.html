@@ -21,7 +21,7 @@
             <input type="text" id="username" formControlName="username" />
             <div *ngIf="username?.invalid && username?.touched" class="error">
               <span *ngIf="username?.hasError('required')">Please enter Username!</span>
-              <span *ngIf="username?.hasError('minlength')">Username must be at least 3 characters.</span>
+              <span *ngIf="username?.hasError('minlength')">Username must be at least 5 characters.</span>
             </div>
           </div>
         
@@ -30,7 +30,7 @@
             <input type="password" id="password" formControlName="password" />
             <div *ngIf="password?.invalid && password?.touched" class="error">
               <span *ngIf="password?.hasError('required')">Password is required.</span>
-              <span *ngIf="password?.hasError('minlength')">Password must be at least 6 characters.</span>
+              <span *ngIf="password?.hasError('minlength')">Password must be at least 8 characters.</span>
             </div>
           </div>
         

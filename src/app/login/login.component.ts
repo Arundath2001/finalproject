@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
+
   get username() {
     return this.loginForm.get('username');
   }
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
+
 
   onSubmit() {
     if (this.loginForm.valid) {
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit {
           if (user) {
             this.loginError = false;
   
-            if (user.rank === 'admin') {
+            if (user.rank === 'hr') {
               this.authService.setLoggedInUser(user);
               this.router.navigate(['/admin']);
             } else if (user.rank === 'employee') {

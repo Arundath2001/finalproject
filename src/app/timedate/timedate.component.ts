@@ -42,7 +42,7 @@ export class TimedateComponent implements OnInit {
   }
 
   getDetailsLink(): string {
-    return this.loggedInUser?.rank === 'admin' ? '/admindetails/' + this.loggedInUser?.id : '/empdetails/' + this.loggedInUser?.id;
+    return this.loggedInUser?.rank === 'hr' ? '/admindetails/' + this.loggedInUser?.id : '/empdetails/' + this.loggedInUser?.id;
   }
 
 }

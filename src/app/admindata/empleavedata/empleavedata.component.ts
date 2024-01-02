@@ -67,10 +67,10 @@ export class EmpleavedataComponent {
 
   ngAfterViewInit() {
     this.httpService.getUsers().subscribe(users => {
-      const userData = users.filter((user: { rank: string; }) => user.rank !== 'admin');
+      const userData = users.filter((user: { rank: string; }) => user.rank !== 'hr');
 
-      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && user.active).length;
-      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && !user.active).length;
+      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && user.active).length;
+      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && !user.active).length;
 
     });
   }
@@ -197,7 +197,7 @@ rejectLeave(user: any, leaveDetail: any): void {
     const filteredData = this.leaveData.filter(
       (user) =>
         (user.username.toLowerCase().includes(term) || user.id.toString().includes(term)) &&
-        user.rank !== 'admin'
+        user.rank !== 'hr'
     );
   
     console.log('Search Term:', term);

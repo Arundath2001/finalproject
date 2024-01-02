@@ -14,6 +14,9 @@ export class EmpprofileComponent implements OnInit {
   isEditing: boolean = false;
   fieldInEditMode: string | null = null; 
   editableFields: string[] = ['username', 'role', 'email', 'mobileNumber', 'age', 'dob', 'image', 'bloodGroup', 'gender'];
+  bloodGroups: string[] = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+  genders: string[] = ['Male', 'Female', 'Other'];
+
 
   constructor(private route: ActivatedRoute, private httpService: HttpService) {}
 
@@ -23,6 +26,7 @@ export class EmpprofileComponent implements OnInit {
       this.fetchUserDetails();
     });
   }
+
 
   fetchUserDetails(): void {
     if (this.userId !== null) { 

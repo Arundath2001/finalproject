@@ -43,9 +43,9 @@ export class Adminchart1Component {
   }
   ngAfterViewInit() {
     this.httpService.getUsers().subscribe(users => {
-      const userData = users.filter((user: { rank: string; }) => user.rank !== 'admin');
-      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && user.active).length;
-      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'admin' && !user.active).length;
+      const userData = users.filter((user: { rank: string; }) => user.rank !== 'hr');
+      const activeUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && user.active).length;
+      const inactiveUsers = users.filter((user: { rank: string; active: any; }) => user.rank !== 'hr' && !user.active).length;
       this.createDoughnutChart(activeUsers, inactiveUsers, this.doughnutChartContainer);
     });
   }

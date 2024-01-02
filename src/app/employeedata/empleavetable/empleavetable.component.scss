@@ -12,7 +12,14 @@
     th, td{
         padding: 10px;
         text-align: center;
+        border: 1px solid lightgrey;
         
+    }
+    th{
+        color: #252C58 ;
+    }
+    h2,p{
+        color: #252C58;
     }
     &__head{
         display: flex;

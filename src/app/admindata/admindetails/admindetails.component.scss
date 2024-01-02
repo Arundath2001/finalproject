@@ -47,7 +47,6 @@
     }
     button{
         padding: 5px;
-        background-color: #1635ff;
         color: white;
         border-radius: 15px;
         cursor: pointer;
@@ -58,6 +57,17 @@
         flex-direction: row;
         gap: 8px;
         align-items: center;
+    }
+    select{
+        background-color: lightgray;
+        border-radius: 8px;
+        padding: 5px;
+    }
+    &__btn2{
+        background-color: rgb(22, 235, 22) ;
+    }
+    &__btn3{
+        background-color: rgb(249, 37, 37) ;
     }
 }
 
